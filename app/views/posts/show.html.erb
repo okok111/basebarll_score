@@ -27,11 +27,11 @@
     <p>コメント一覧</p>
         <% @comments.each do |c| %>
             <div>
-            <%= c.user.email unless c.user.blank? %>
             <br>
             <%= c.content %>
             </div>
             <br>
+            <%= link_to "コメントを見る", post_comment_path(@post, c) %>
         <% end %>
         <% if user_signed_in? %>
             <%= form_with(model: [@post, @comment], local: true) do |f| %>
