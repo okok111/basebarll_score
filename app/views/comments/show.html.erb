@@ -1,0 +1,22 @@
+<%= @comment.content%>
+
+<% @scores.each do |score| %>
+  <div>
+    <%= score.user.email unless score.user.blank? %>
+    <br>
+    <%= score.content %>
+    <br>
+    <%= link_to "scoreを見る", post_comment_score_path(@post, @comment, score) %>
+  </div>
+  <br>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= form_with(model: [@comment, @score], url: post_comment_scores_path(@post, @comment), local: true) do |f| %>
+    <%= f.hidden_field :score_id, value: @score.id %>
+    <%= f.text_area :content, placeholder: "コメントする内容を入力してください" %>
+    <%= button_tag type: "submit" do %>
+      <i class="far fa-comments"></i> コメントする
+    <% end %>
+  <% end %>
+<% end %>
