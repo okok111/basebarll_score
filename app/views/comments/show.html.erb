@@ -1,8 +1,6 @@
 <%= @comment.content%>
 
 <% @scores.each do |score| %>
-  <div>
-    <%= score.user.email unless score.user.blank? %>
     <br>
     <%= score.content %>
     <br>
