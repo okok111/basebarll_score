@@ -42,6 +42,6 @@ class ScoresController < ApplicationController
   end
 
   def score_params
-    params.require(:score).permit(:content)
+    params.require(:score).permit(:content,:location,:daseki)
   end
 end

@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2024_06_04_143222) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
+    t.string "result"
     t.integer "user_id", null: false
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -41,6 +42,8 @@ ActiveRecord::Schema.define(version: 2024_06_04_143222) do
   end
 
   create_table "scores", force: :cascade do |t|
+    t.string "daseki"
+    t.integer "location"
     t.string "content"
     t.integer "user_id", null: false
     t.integer "comment_id", null: false
